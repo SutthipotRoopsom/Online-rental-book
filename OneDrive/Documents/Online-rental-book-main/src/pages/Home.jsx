@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar';
 import BookCard from '../components/BookCard';
 
 const Home = ({ onSearch, books }) => {
-    const recommendedBooks = books.filter(book => book.category === 'Fiction'); // Example category
+    const recommendedBooks = books.filter(book => book.category === 'Fiction')// Example category
 
     return (
         <div>

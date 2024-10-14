@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
 body {
-  font-family: 'Georgia', serif; /* Use a more bookish font */
-  background-color: #f8f9fa; /* Soft background color */
+  font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.kanit-medium {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 header {

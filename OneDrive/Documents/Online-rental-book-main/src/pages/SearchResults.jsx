@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import "../styles/CheckoutButton.css"; // Ensure the path is correct
 
-const SearchResults = ({ books, onRent, onSearch }) => {
+const SearchResults = ({ books, onRent }) => {
     const [filteredBooks, setFilteredBooks] = useState(books);
 
     const handleSearch = (query) => {
@@ -21,7 +21,7 @@ const SearchResults = ({ books, onRent, onSearch }) => {
             <SearchBar onSearch={handleSearch} />
             <div className="checkout-button-wrapper">
                 <Link to="/checkout">
-                    <button className="checkout-button">Go to Checkout</button>
+                    <button className="checkout-button">ตะกร้าของฉัน</button>
                 </Link>
             </div>
             <div className="book-list">
