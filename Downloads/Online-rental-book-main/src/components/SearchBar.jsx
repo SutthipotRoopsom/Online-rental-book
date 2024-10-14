@@ -1,5 +1,6 @@
 // src/components/SearchBar.jsx
 import React, { useState } from 'react';
+import '../styles/SearchBar.css'; // Update the path to correctly reference the styles
 
 const SearchBar = ({ onSearch }) => {
     const [query, setQuery] = useState('');
@@ -11,7 +12,7 @@ const SearchBar = ({ onSearch }) => {
     };
 
     return (
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSearch} className="search-bar"> {/* Add className for styling */}
             <input 
                 type="text" 
                 placeholder="Search for books..." 
