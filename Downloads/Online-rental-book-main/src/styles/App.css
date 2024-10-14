@@ -43,10 +43,11 @@ nav a:hover {
 
 /* src/styles/App.css */
 
+/* Example CSS for category filter */
 .category-filter {
-  position: absolute; /* Position it absolutely */
+  position: absolute; /* Ensure it stays in position */
   top: 20px; /* Adjust this value for vertical spacing */
-  right: 20px; /* Position it to the right */
+  right: 20px; /* Keep it to the right */
   z-index: 1000; /* Ensure it's above other elements */
 }
 
@@ -55,6 +56,7 @@ nav a:hover {
   border: 1px solid #ccc; /* Add a border for styling */
   border-radius: 4px; /* Round the corners */
 }
+
 
 
 select {

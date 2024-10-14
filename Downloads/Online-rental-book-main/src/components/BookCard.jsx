@@ -2,11 +2,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const BookCard = ({ book, buttonLabel, onRent, showDetails }) => {
+const BookCard = ({ book, buttonLabel, onRent }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const handleToggleDescription = () => {
         setIsExpanded(!isExpanded);
+    };
+
+    const handleRent = (id) => {
+        alert(`"${book.title}" has been added to your cart!`); // Notification when renting
+        if (onRent) {
+            onRent(id); // Call the onRent function passed from parent
+        }
     };
 
     const shortDescription = book.description.length > 100
@@ -27,14 +34,16 @@ const BookCard = ({ book, buttonLabel, onRent, showDetails }) => {
                     </button>
                 )}
             </p>
-            {onRent && (
-                <button className="rent-button" onClick={() => onRent(book.id)}>
-                    {buttonLabel}
-                </button>
-            )}
-            {showDetails && (
-                <Link to={`/books/${book.id}`} className="view-details-button">View Details</Link>
-            )}
+            <div className="book-actions">
+                {onRent && (
+                    <button className="rent-button" onClick={() => handleRent(book.id)}>
+                        {buttonLabel}
+                    </button>
+                )}
+                <Link to={`/books/${book.id}`}>
+                    <button className="view-button">View Details</button>
+                </Link>
+            </div>
         </div>
     );
 };

@@ -5,9 +5,11 @@
     width: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 400px; /* Fix the height of the card */
+    justify-content: space-between; /* This keeps space between the title, description, and actions */
+    height: 400px; /* Fixed height of the card */
     margin: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visuals */
+    overflow: hidden; /* Prevents overflow of content */
 }
 
 .book-image {
@@ -17,9 +19,11 @@
 }
 
 .book-description {
-    flex-grow: 1;
-    margin-bottom: 10px; /* Add some space before the button */
+    flex-grow: 1; /* This allows the description to take up available space */
+    margin-bottom: 10px; /* Add space before the button area */
+    overflow: hidden; /* Prevents the description from pushing buttons out */
 }
+
 
 .read-more {
     background: none;
@@ -27,17 +31,36 @@
     color: blue;
     cursor: pointer;
     padding-left: 5px;
+    text-decoration: underline; /* Optional: underline for clarity */
+    margin-top: 5px; /* Add some spacing above */
 }
 
-.rent-button {
-    background-color: #28a745;
+
+.book-actions {
+    display: flex;
+    justify-content: space-between; /* Aligns Rent and View buttons */
+    margin-top: 10px; /* Space above buttons */
+}
+
+.rent-button, .view-button {
+    background-color: #007bff; /* Default color for both buttons */
     color: white;
     border: none;
     padding: 10px;
+    border-radius: 4px; /* Rounded corners */
     cursor: pointer;
-    margin-top: 10px;
+    flex: 1; /* Ensures both buttons take equal width */
+    margin: 0 5px; /* Small margin between buttons */
+}
+
+.rent-button {
+    background-color: #28a745; /* Green for rent button */
 }
 
 .rent-button:hover {
     background-color: #218838;
+}
+
+.view-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }

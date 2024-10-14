@@ -153,11 +153,19 @@ const App = () => {
         }
     };
 
-    const handleOrder = () => {
-        const totalPrice = rentedBooks.reduce((total, book) => total + (book.price * book.quantity), 0);
-        alert('Order placed! Total Price: ' + totalPrice + '. Your rented books will expire on: ' + rentedBooks[0]?.expiration.toLocaleDateString());
-        setRentedBooks([]);
-    };
+    // ... (other state variables)
+    const [orderHistory, setOrderHistory] = useState([]); // Track order history
+
+    const handleOrder = (orderedBooks) => {
+      const totalPrice = orderedBooks.reduce((total, book) => total + (book.price * (book.rentalDays || 1)), 0);
+      alert('Order placed! Total Price: ' + totalPrice + '. Your rented books will expire on: ' + orderedBooks[0]?.expiration.toLocaleDateString());
+  
+      // Save order details to order history
+      setOrderHistory([...orderHistory, ...orderedBooks]);
+  
+      setRentedBooks([]); // Clear rented books after order
+  };
+  
 
     return (
         <Router>
@@ -165,9 +173,9 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home onSearch={handleSearch} books={filteredBooks} onRent={handleRent} />} />
                 <Route path="/search" element={<SearchResults books={filteredBooks} onRent={handleRent} />} />
-                <Route path="/profile" element={<UserProfile previouslyOrderedBooks={rentedBooks} />} />
+                <Route path="/profile" element={<UserProfile previouslyOrderedBooks={orderHistory} />} /> {/* Pass order history */}
                 <Route path="/checkout" element={<Checkout rentedBooks={rentedBooks} onOrder={handleOrder} setRentedBooks={setRentedBooks} />} />
-                <Route path="/books/:id" element={<BookDetail books={books} />} /> {/* Add this route */}
+                <Route path="/books/:id" element={<BookDetail books={books} />} />
             </Routes>
         </Router>
     );
